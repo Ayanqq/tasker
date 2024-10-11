@@ -1,7 +1,7 @@
 import { useAppDispatch } from "common/hooks"
 import React, { useEffect } from "react"
 import { useSelector } from "react-redux"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import {
   AppBar,
   Button,
@@ -64,7 +64,9 @@ function App() {
         <Container fixed>
           <Routes>
             <Route path={"/tasker"} element={<TodolistsList />} />
+            <Route path={"/"} element={<Navigate to={"/tasker"}/>} />
             <Route path={"/login"} element={<Login />} />
+
           </Routes>
         </Container>
       </div>
